@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL IP Lookup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>URL IP Lookup</h1>
+      <p>Enter a website URL to find its IP address.</p>
+
+      <form method="POST" class="lookup-form">
+        <input
+          type="text"
+          name="url"
+          placeholder="example.com"
+          value="{{ request.form.get('url', '') }}"
+          required
+        />
+        <button type="submit">Get IP</button>
+      </form>
+
+      {% if result %}
+      <div class="card success">
+        <h2>Result</h2>
+        <p><strong>IP Address:</strong> {{ result }}</p>
+      </div>
+      {% endif %}
+
+      {% if error %}
+      <div class="card error">
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+      </div>
+      {% endif %}
+    </main>
+  </body>
+</html>
