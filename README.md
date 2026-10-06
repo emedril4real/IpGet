@@ -37,6 +37,35 @@ python app.py
 http://127.0.0.1:5000/
 ```
 
+## Kali Linux installation guide
+
+If you are using Kali Linux, follow these steps:
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-pip python3-venv git
+cd ~/Desktop
+mkdir -p IpGet
+cd IpGet
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+python app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000/
+```
+
+If the app does not start because of a missing package, install the requirements again inside the virtual environment:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Example
 
 Input:
